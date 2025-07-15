@@ -1,0 +1,135 @@
+<header>
+  <h3>จัดการข้อมูลนักศึกษา</h3>
+</header>
+
+<main>
+  <h3>กรอกข้อมูลนักศึกษา</h3>
+  <div class="form-container">
+    <div class="input-group">
+      <div class="input-field">
+        <span>รหัสนักศึกษา</span>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="studentId"
+          placeholder="กรุณากรอกรหัสนักศึกษา"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          (keypress)="allowOnlyNumbers($event)"
+        />
+      </div>
+
+      <div class="input-field">
+        <span>ชื่อ</span>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="firstName"
+          placeholder="กรุณากรอกชื่อ"
+        />
+      </div>
+
+      <div class="input-field">
+        <span>นามสกุล</span>
+        <input
+          type="text"
+          pInputText
+          [(ngModel)]="lastName"
+          placeholder="กรุณากรอกนามสกุล"
+        />
+      </div>
+    </div>
+
+   <div class="input-group">
+  <div class="input-field">
+    <span>คณะ</span>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="faculty"
+      placeholder="กรุณากรอกข้อมูล"
+    />
+  </div>
+
+  <div class="input-field">
+    <span>สาขา</span>
+    <input
+      type="text"
+      pInputText
+      [(ngModel)]="major"
+      placeholder="กรุณากรอกข้อมูล"
+    />
+  </div>
+
+  <div class="input-field">
+    <span>ชั้นปี</span>
+    <p-dropdown 
+      [(ngModel)]="year"
+      [options]="[
+        { label: 'ปี 1', value: '1' },
+        { label: 'ปี 2', value: '2' },
+        { label: 'ปี 3', value: '3' },
+        { label: 'ปี 4', value: '4' }
+      ]"
+      placeholder="เลือกชั้นปี">
+    </p-dropdown>
+  </div>
+</div>
+
+    <div class="button-group">
+      <button pButton (click)="onSearch()">
+        <span class="pi pi-check" style="margin-right: 6px;"></span>
+        บันทึก
+      </button>
+      <button pButton1 class="p-button-danger" (click)="onClear()">
+        <span class="pi pi-times" style="margin-right: 6px;"></span>
+        ล้าง
+      </button>
+    </div>
+  </div>
+
+  <p-toast></p-toast>
+  <div *ngIf="result" class="alert">{{ result }}</div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+    <h3 style="margin: 0;">
+      <span class="pi pi-users" style="margin-right: 20px;"></span>รายชื่อนักศึกษา
+    </h3>
+    <button pButton (click)="exportToExcel()">
+      <span class="pi pi-file-excel" style="margin-right: 8px;"></span>Export Excel
+    </button>
+  </div>
+
+  <table class="student-table">
+    <thead>
+      <tr>
+        <th>รหัส</th>
+        <th>ชื่อ</th>
+        <th>นามสกุล</th>
+        <th>ชั้นปี</th>
+        <th>คณะ</th>
+        <th>สาขา</th>
+        <th>การจัดการ</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let student of students">
+        <td>{{ student.studentId }}</td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
+        <td>{{ student.year }}</td>
+        <td>{{ student.faculty }}</td>
+        <td>{{ student.major }}</td>
+        <td>
+          <button pButton (click)="editStudent(student)" class="p-button-outlined p-button-sm">
+            <span class="pi pi-pencil" style="margin-right: 6px;"></span>แก้ไข
+          </button>
+          <button pButton (click)="deleteStudent(student)" class="p-button-outlined p-button-sm p-button-danger">
+            <span class="pi pi-trash" style="margin-right: 6px;"></span>ลบ
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</main>

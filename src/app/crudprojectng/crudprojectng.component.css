@@ -1,0 +1,200 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f6fa;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #e91e63;
+  color: #fff;
+  padding: 18px 32px;
+  border-radius: 0 0 10px 10px;
+  box-shadow: 0 2px 8px #e0e7ff;
+}
+
+header h3 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+main {
+  max-width: 1200px;
+  margin: 32px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px #e0e7ff;
+  padding: 32px;
+}
+
+main h3 {
+  margin-top: 0;
+  color: #4f46e5;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.form-container {
+  margin: 20px 0;
+}
+
+.input-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.input-field {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.input-field span {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[pInputText] {
+  width: 100%; 
+  padding: 8px 12px;
+  border: 1.5px solid #a5b4fc;
+  border-radius: 4px;
+  background: #f8fafc;
+  font-size: 16px; 
+  box-sizing: border-box; 
+}
+
+input[pInputText]:focus {
+  border-color: #6366f1;
+  background: #fff;
+  outline: none;
+}
+
+.p-dropdown {
+  width: 100%; 
+  padding: 8px 12px;
+  border: 1.5px solid #a5b4fc;
+  border-radius: 4px;
+  background: #f8fafc;
+  font-size: 16px; 
+  box-sizing: border-box;
+}
+
+.p-dropdown:hover,
+.p-dropdown:focus-within {
+  border-color: #6366f1;
+}
+
+.p-dropdown .p-dropdown-label {
+  padding: 0;
+}
+
+.p-dropdown .p-dropdown-trigger {
+  padding-right: 12px;
+}
+
+.ng-invalid .p-dropdown,
+.ng-invalid input[pInputText] {
+  border-color: #ef4444 !important;
+}
+
+.error-message {
+  color: #ef4444;
+  margin-top: 10px;
+  font-size: 16px; 
+}
+
+.button-group {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+button[pButton] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px; 
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  background-color: #10b981;
+  transition: background 0.2s;
+  min-width: 100px; 
+  white-space: normal; 
+}
+
+button[pButton1] {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px; 
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  background-color: #ef4444; 
+  transition: background 0.2s;
+  min-width: 100px; 
+  white-space: normal; 
+}
+
+button[pButton][disabled] {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+  opacity: 0.6;
+  min-width: 100px; 
+}
+
+button[pButton]:hover {
+  background-color: #059669;
+}
+
+button[pButton1]:hover {
+  background-color: #b91c1c; /* สีแดงเข้มขึ้น */
+}
+
+
+.student-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  font-size: 16px;
+}
+
+.student-table th,
+.student-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.student-table th {
+  background: #f9fafb;
+  color: #e91e63;
+  font-weight: 600;
+  border-bottom: 2px solid #e91e63;
+}
+
+.student-table tr:hover {
+  background-color: #f3f4f6;
+}
+
+.student-table td button {
+  margin-right: 8px;
+  padding: 4px 10px;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; 
+}
+
+.student-table td button:hover {
+  background: #4338ca;
+}

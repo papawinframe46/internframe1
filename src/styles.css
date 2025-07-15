@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://cdn.jsdelivr.net/npm/primeng@19.1.3/resources/primeng.min.css');
+@import url('https://cdn.jsdelivr.net/npm/primeicons@7.0.0/primeicons.css');
+
+body {
+  background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%);
+  font-family: 'Prompt', 'Kanit', 'Roboto', Arial, sans-serif;
+  color: #222;
+  margin: 0;
+}
+/* PrimeNG Button Customization */
+.p-button {
+  box-shadow: 0 2px 8px #585858;
+  transition: background 0.2s, box-shadow 0.2s;
+}
+.p-button.p-button-primary {
+  background: #fc00bd;
+  border: none;
+}
+.p-button.p-button-primary:hover {
+  background: #d100a6;
+}
+.p-button.p-button-secondary {
+  background: #888;
+  border: none;
+}
+.p-button.p-button-secondary:hover {
+  background: #555;
+}
+
+/* Table Styling Example */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 24px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #eee;
+  overflow: hidden;
+}
+th, td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #f3f3f3;
+  text-align: left;
+}
+th {
+  background: #fc00bd;
+  color: #fff;
+  font-weight: 500;
+}
+tr:last-child td {
+  border-bottom: none;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .search-container {
+    max-width: 100%;
+    padding: 12px;
+  }
+  table, th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
