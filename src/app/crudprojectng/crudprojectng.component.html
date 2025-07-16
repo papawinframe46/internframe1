@@ -47,7 +47,7 @@
       type="text"
       pInputText
       [(ngModel)]="faculty"
-      placeholder="กรุณากรอกข้อมูล"
+      placeholder="กรุณากรอกคณะ"
     />
   </div>
 
@@ -57,7 +57,7 @@
       type="text"
       pInputText
       [(ngModel)]="major"
-      placeholder="กรุณากรอกข้อมูล"
+      placeholder="กรุณากรอกสาขา"
     />
   </div>
 
@@ -93,43 +93,52 @@
 
   <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
     <h3 style="margin: 0;">
-      <span class="pi pi-users" style="margin-right: 20px;"></span>รายชื่อนักศึกษา
-    </h3>
+      <span class="pi pi-users" style="margin-right: 20px;"></span>รายชื่อนักศึกษา</h3>
     <button pButton (click)="exportToExcel()">
       <span class="pi pi-file-excel" style="margin-right: 8px;"></span>Export Excel
     </button>
   </div>
 
-  <table class="student-table">
-    <thead>
-      <tr>
-        <th>รหัส</th>
-        <th>ชื่อ</th>
-        <th>นามสกุล</th>
-        <th>ชั้นปี</th>
-        <th>คณะ</th>
-        <th>สาขา</th>
-        <th>การจัดการ</th>
-      </tr>
-    </thead>
+  <div class="search-bar" style="margin-bottom: 1rem;">
+  <input
+    type="text"
+    pInputText
+    [(ngModel)]="searchKeyword"
+    placeholder="ค้นหา (รหัสนักศึกษา, ชื่อ, นามสกุล, ชั้นปี)"
+    style="width: 300px;"
+  />
+</div>
 
-    <tbody>
-      <tr *ngFor="let student of students">
-        <td>{{ student.studentId }}</td>
-        <td>{{ student.firstName }}</td>
-        <td>{{ student.lastName }}</td>
-        <td>{{ student.year }}</td>
-        <td>{{ student.faculty }}</td>
-        <td>{{ student.major }}</td>
-        <td>
-          <button pButton (click)="editStudent(student)" class="p-button-outlined p-button-sm">
-            <span class="pi pi-pencil" style="margin-right: 6px;"></span>แก้ไข
-          </button>
-          <button pButton (click)="deleteStudent(student)" class="p-button-outlined p-button-sm p-button-danger">
-            <span class="pi pi-trash" style="margin-right: 6px;"></span>ลบ
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<table class="student-table">
+  <thead>
+    <tr>
+      <th>รหัส</th>
+      <th>ชื่อ</th>
+      <th>นามสกุล</th>
+      <th>ชั้นปี</th>
+      <th>คณะ</th>
+      <th>สาขา</th>
+      <th>การจัดการ</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let student of filteredStudents()">
+    <td>{{ student.studentId }}</td>
+    <td>{{ student.firstName }}</td>
+    <td>{{ student.lastName }}</td>
+    <td>{{ student.year }}</td>
+    <td>{{ student.faculty }}</td>
+    <td>{{ student.major }}</td>
+    <td>
+      <button pButton (click)="editStudent(student)" class="p-button-outlined p-button-sm">
+        <span class="pi pi-pencil" style="margin-right: 6px;"></span>แก้ไข
+      </button>
+      <button pButton (click)="deleteStudent(student)" class="p-button-outlined p-button-sm p-button-danger">
+        <span class="pi pi-trash" style="margin-right: 6px;"></span>ลบ
+      </button>
+    </td>
+  </tr>
+</tbody>
+</table>
 </main>
