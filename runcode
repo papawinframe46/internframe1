@@ -1,0 +1,9 @@
+github
+
+git add .
+git commit -m "อัปเดตโค้ดและไฟล์ภาพใหม่"
+git push
+
+runspring boot 
+
+./mvnw spring-boot:run
